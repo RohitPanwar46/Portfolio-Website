@@ -8,8 +8,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
+        background: "var(--background)", // Custom color variables
         foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'], // Add Inter font
       },
     },
   },
