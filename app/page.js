@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
@@ -79,16 +78,16 @@ export default function Home() {
         </div>
 
         {/* Right Section */}
-        <div className="Rightpart hidden md:block">
+        {/* <div className="Rightpart hidden">
           <div className="rounded-xl mr-0 md:mr-32 overflow-hidden">
             <img
               className=""
               width={350}
-              src="https://th.bing.com/th/id/OIP.Blj2M36K5WYTyNd6v6Jz0QHaJf?rs=1&pid=ImgDetMain"
-              alt="Men"
+              src=""
+              alt=""
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
