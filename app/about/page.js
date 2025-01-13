@@ -16,7 +16,7 @@ export default function About() {
           </p>
 
           <p className="text-lg leading-relaxed text-[#03045e]">
-            I also focus on honing my **communication skills** to provide seamless collaboration with clients and team members. As a freelancer, I strive to deliver high-quality projects tailored to the client's vision.
+            I also focus on honing my **communication skills** to provide seamless collaboration with clients and team members. As a freelancer, I strive to deliver high-quality projects tailored to the client&apos;s vision.
           </p>
 
           <h2 className="text-2xl font-semibold mt-6 mb-4">My Vision</h2>
