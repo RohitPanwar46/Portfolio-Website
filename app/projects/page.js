@@ -44,3 +44,8 @@ export default function Projects() {
     </div>
   );
 }
+
+export const metadata = {
+  title: "Projects | Rohit Panwar",
+  description: "I am Rohit This is my portfolio website",
+};

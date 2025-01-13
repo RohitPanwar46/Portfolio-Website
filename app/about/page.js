@@ -37,3 +37,8 @@ export default function About() {
     </div>
   );
 }
+
+export const metadata = {
+  title: "About | Rohit Panwar",
+  description: "I am Rohit This is my portfolio website",
+};

@@ -2,6 +2,8 @@
 
 import React from "react";
 import { FaLinkedin, FaEnvelope, FaBriefcase, FaGithub, } from "react-icons/fa";
+import Head from "next/head";
+import { useEffect } from "react";
 
 const Contact = () => {
   const links = [
@@ -37,8 +39,17 @@ const Contact = () => {
     },
   ];
 
+  useEffect(() => {
+    document.title = "Contact Me | Rohit Panwar"; // Set dynamic title using useEffect
+  }, []);
+
   return (
-    <div className="min-h-screen  text-[#03045e] flex flex-col items-center py-12 px-4">
+    <>
+    <Head>
+        <title>Contact Me | Rohit Panwar</title> 
+      </Head>
+
+      <div className="min-h-screen  text-[#03045e] flex flex-col items-center py-12 px-4">
       <h1 className="text-4xl font-bold mb-6">Get in Touch</h1>
       <p className="text-lg text-[#03045e] mb-8 text-center">
         Feel free to reach out to me through the links below. I am always open
@@ -68,6 +79,7 @@ const Contact = () => {
         Designed with ❤️ by Rohit
       </footer>
     </div>
+    </>
   );
 };
 
