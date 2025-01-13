@@ -4,17 +4,17 @@ const projects = [
   {
     title: "Portfolio Website",
     description: "A personal portfolio showcasing my skills and projects.",
-    link: "https://yourportfolio.com",
+    link: "https://rohit-portfolio-websie-mu.vercel.app/",
   },
   {
     title: "E-Commerce Store",
     description: "A fully functional e-commerce platform.",
-    link: "https://ecommerce.com",
+    link: "https://rohit-portfolio-websie-mu.vercel.app/",
   },
   {
     title: "Weather App",
     description: "A simple weather forecasting app using OpenWeather API.",
-    link: "https://weatherapp.com",
+    link: "https://rohit-portfolio-websie-mu.vercel.app/",
   },
 ];
 
