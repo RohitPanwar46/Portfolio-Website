@@ -66,7 +66,7 @@ const Contact = () => {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex justify-center items-center gap-4 w-52 px-6 py-3 bg-[#fcf6a9] md:bg-[#f6ee83] text-[#474306] border border-[#474306] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="flex justify-center items-center gap-4 w-52 px-6 py-3 bg-[#fffab6] md:bg-[#f6ee83] text-[#474306] border border-[#474306] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             {link.icon}
             <span className="text-lg font-medium">{link.name}</span>

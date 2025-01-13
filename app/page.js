@@ -70,7 +70,7 @@ export default function Home() {
           <div className="projectBtn font-[550]  mt-10 md:mt-32 ">
             Click here to view my projects:-
             <Link href={"/projects"}>
-              <button className="md:ml-5 ml-2 text-[#474306] text-sm py-2 px-4 rounded-[5px] border bg-[#f5ee84] border-[#474306]">
+              <button className="md:ml-5 shadow-lg hover:shadow-xl transition-shadow bg-[#fcf6a9] md:bg-[#f6ee83] ml-2 text-[#474306] text-sm py-2 px-4 rounded-[5px] border border-[#474306]">
                 Projects
               </button>
             </Link>
