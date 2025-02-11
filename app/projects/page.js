@@ -2,19 +2,19 @@ import React from "react";
 
 const projects = [
   {
-    title: "Portfolio Website",
-    description: "A personal portfolio showcasing my skills and projects.",
-    link: "https://rohit-portfolio-websie-mu.vercel.app/",
+    title: "Get Me A Chai",
+    description: "skills are used :- NextJs as a framework, Tailwind CSS for styling, Mongodb Atlas for database, Razporpay intigretion for payment, AuthJs for login with github.",
+    link: "https://get-me-a-chai-two-steel.vercel.app/",
   },
   {
-    title: "E-Commerce Store",
-    description: "A fully functional e-commerce platform.",
-    link: "https://rohit-portfolio-websie-mu.vercel.app/",
+    title: "Netflix Homepage UI Clone",
+    description: "skills are used :- HTML, CSS, JavaScript.",
+    link: "https://netfix-home-page-ui-clone-drzayjp21-rohits-projects-bfb999cc.vercel.app/",
   },
   {
-    title: "Weather App",
-    description: "A simple weather forecasting app using OpenWeather API.",
-    link: "https://rohit-portfolio-websie-mu.vercel.app/",
+    title: "Password Manager",
+    description: "skills are used :- Tailwind CSS, ReactJs, localstorage for save passwords.",
+    link: "https://password-manager-pi-liart.vercel.app/",
   },
 ];
 
