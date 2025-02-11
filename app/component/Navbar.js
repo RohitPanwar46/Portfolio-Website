@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className=" text-[#03045e] ">
       <div className="max-w-screen-xl flex  items-center justify-between mx-auto md:p-4">
         <div className='hidden md:block font-inter font-semibold'>
-          ROHIT
+        <Link href="/" aria-current="page">Rohit</Link>
         </div>
         <div className="w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-row p-4 md:p-0    md:space-x-8 rtl:space-x-reverse   ">
