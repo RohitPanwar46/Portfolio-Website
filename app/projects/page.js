@@ -6,7 +6,7 @@ const projects = [
   {
     title: "YouTube Clone",
     description: "A fully functional YouTube clone",
-    link: "https://netfix-home-page-ui-clone-drzayjp21-rohits-projects-bfb999cc.vercel.app/",
+    link: "https://you-tube-clone-ten-gamma.vercel.app/",
     technologies: ["JavaScript", "NextJs", "NodeJs", "ExpressJs", "MongoDb", "Cloudinary", "Vercel", "Render", "Tailwind CSS"],
     icon: "🎬"
   },
