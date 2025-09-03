@@ -13,12 +13,21 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Rohit Panwar",
-  description: "I am Rohit This is my portfolio website",
+  description: "I am Rohit Panwar. This is my portfolio website",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "48x48" },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#faf8de] md:bg-[#fbf8cc]`}
       >
