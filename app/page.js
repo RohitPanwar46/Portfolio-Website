@@ -1,29 +1,108 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "./component/Navbar";
 
+// Typewriter words (component ke bahar, taaki har render pe naya array na bane)
+const words = [
+  "Computer Vision...",
+  "Machine Learning...",
+  "Signal Processing...",
+  "React Native...",
+  "TensorFlow...",
+  "Docker...",
+  "VPS Deployment...",
+  "NextJs...",
+  "React...",
+  "Python...",
+  "Node.js...",
+  "ExpressJs...",
+  "MongoDb...",
+  "JavaScript...",
+  "C++...",
+  "C#...",
+];
+
+// Skills grid (2 sections)
+const skillSections = [
+  {
+    title: "Web Development",
+    items: [
+      { name: "React Native", icon: "📱" },
+      { name: "Next.js", icon: "▲" },
+      { name: "React", icon: "⚛️" },
+      { name: "Docker", icon: "🐳" },
+      { name: "VPS Deployment", icon: "🖥️" },
+      { name: "Node.js", icon: "🟢" },
+      { name: "Express", icon: "🚂" },
+      { name: "FastAPI", icon: "⚡" },
+      { name: "MongoDB", icon: "🍃" },
+      { name: "Firebase", icon: "🔥" },
+      { name: "WebSockets", icon: "🔌" },
+      { name: "Google OAuth", icon: "🔐" },
+      { name: "Cloudinary", icon: "☁️" },
+      { name: "Tailwind CSS", icon: "💨" },
+      { name: "REST APIs", icon: "🔗" },
+      { name: "JavaScript", icon: "📜" },
+      { name: "Git & GitHub", icon: "🔀" },
+      { name: "C++ / C#", icon: "🔧" },
+    ],
+  },
+  {
+    title: "Machine Learning",
+    items: [
+      { name: "Computer Vision", icon: "👁️" },
+      { name: "Deep Learning", icon: "🧠" },
+      { name: "TensorFlow", icon: "🔶" },
+      { name: "CNN", icon: "🕸️" },
+      { name: "InsightFace", icon: "👤" },
+      { name: "Digital Signal Processing", icon: "📡" },
+      { name: "Audio Signal Processing", icon: "🎙️" },
+      { name: "FFT", icon: "〰️" },
+      { name: "Analog-Digital Conversion", icon: "🔁" },
+      { name: "Collaborative Filtering", icon: "👥" },
+      { name: "Content-Based Filtering", icon: "🎬" },
+      { name: "OpenCV", icon: "📷" },
+      { name: "NLP", icon: "💬" },
+      { name: "Python", icon: "🐍" },
+      { name: "Scikit-learn", icon: "🤖" },
+      { name: "Time-Series", icon: "📈" },
+      { name: "Feature Engineering", icon: "🛠️" },
+      { name: "NumPy & Pandas", icon: "🐼" },
+    ],
+  },
+];
+
 export default function Home() {
-  const words = [
-    "MongoDb...",
-    "ExpressJs...",
-    "React...",
-    "NextJs...",
-    "HTML...",
-    "CSS...",
-    "JavaScript...",
-    "Python...",
-    "C...",
-  ];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayedWord, setDisplayedWord] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [showScrollHint, setShowScrollHint] = useState(true);
+  const skillsRef = useRef(null);
+
+  // Scroll hint: visible only near the top of the page
+  useEffect(() => {
+    const onScroll = () => setShowScrollHint(window.scrollY < 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // window.scrollTo use kiya hai (scrollIntoView nahi), kyunki scrollIntoView
+  // overflow-hidden wale parent div ko bhi scroll kar deta tha aur page upar
+  // tak wapas nahi aata tha.
+  const scrollToSkills = () => {
+    if (!skillsRef.current) return;
+    const top =
+      skillsRef.current.getBoundingClientRect().top + window.scrollY - 96;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
 
   useEffect(() => {
     setIsMounted(true);
@@ -49,11 +128,10 @@ export default function Home() {
     );
 
     return () => clearTimeout(timer);
-  }, [charIndex, isDeleting, currentWordIndex, words]);
+  }, [charIndex, isDeleting, currentWordIndex]);
 
   // Fixed background dots without random values that cause hydration issues
   const BackgroundDots = () => {
-    // Use fixed positions and sizes instead of random ones
     const fixedDots = [
       { size: 10, top: 8, left: 48 },
       { size: 12, top: 59, left: 8 },
@@ -146,20 +224,31 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.7 }}
               >
-                Web
+                Software
               </motion.div>
 
               <motion.div
-                className="font-bold text-6xl md:text-8xl h-24 absolute top-16 md:top-20 text-indigo-800"
+                className="font-bold text-6xl md:text-8xl h-24 absolute top-[4.5rem] md:top-[5.5rem] text-indigo-800"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.7 }}
               >
-                Developer
+                Engineer
               </motion.div>
 
+              {/* Tagline */}
               <motion.div
-                className="mt-24 md:mt-36 text-base font-medium flex items-center"
+                className="mt-[6.5rem] md:mt-[9.5rem] text-lg md:text-xl font-semibold text-indigo-600"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.85, duration: 0.5 }}
+              >
+                Full-Stack &amp; Machine Learning
+              </motion.div>
+
+              {/* Skills typewriter */}
+              <motion.div
+                className="mt-4 text-base font-medium flex items-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9, duration: 0.5 }}
@@ -183,7 +272,7 @@ export default function Home() {
               </motion.div>
 
               <motion.div
-                className="font-medium mt-10 md:mt-32 flex flex-col md:flex-row items-start md:items-center"
+                className="font-medium mt-10 md:mt-16 flex flex-col md:flex-row items-start md:items-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.1, duration: 0.5 }}
@@ -312,7 +401,7 @@ export default function Home() {
                     rotate: [0, 90, 0],
                   }}
                   transition={{
-                    duration: 8,
+                    duration: 3,
                     repeat: Infinity,
                     repeatType: "reverse",
                   }}
@@ -325,7 +414,7 @@ export default function Home() {
                     rotate: [0, -90, 0],
                   }}
                   transition={{
-                    duration: 7,
+                    duration: 3,
                     repeat: Infinity,
                     repeatType: "reverse",
                   }}
@@ -334,39 +423,71 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Skills section with icons */}
-          <motion.div
-            className="mt-20 md:mt-32 grid grid-cols-3 md:grid-cols-5 gap-6"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-          >
-            {[
-              { name: "React", icon: "⚛️" },
-              { name: "Next.js", icon: "▲" },
-              { name: "MongoDB", icon: "🍃" },
-              { name: "Express", icon: "🚂" },
-              { name: "Python", icon: "🐍" },
-              { name: "JavaScript", icon: "📜" },
-              { name: "HTML", icon: "🌐" },
-              { name: "CSS", icon: "🎨" },
-              { name: "C", icon: "🔧" },
-            ].map((skill, index) => (
+          {/* Skills sections */}
+          <div ref={skillsRef} className="mt-20 md:mt-32 space-y-12">
+            {skillSections.map((section, sIndex) => (
               <motion.div
-                key={skill.name}
-                className="flex flex-col items-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow"
-                whileHover={{ y: -5, scale: 1.05 }}
-                initial={{ opacity: 0, y: 20 }}
+                key={section.title}
+                initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 + index * 0.1 }}
+                transition={{ duration: 0.7, delay: 0.5 + sIndex * 0.2 }}
               >
-                <span className="text-2xl mb-2">{skill.icon}</span>
-                <span className="text-sm font-medium">{skill.name}</span>
+                <h2 className="text-2xl md:text-3xl font-bold text-indigo-900 mb-6 text-center md:text-left">
+                  {section.title}
+                </h2>
+                <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
+                  {section.items.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      className="flex flex-col items-center text-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                      whileHover={{ y: -5, scale: 1.05 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7 + index * 0.08 }}
+                    >
+                      <span className="text-2xl mb-2">{skill.icon}</span>
+                      <span className="text-sm font-medium">{skill.name}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
+
+      {/* Scroll down hint */}
+      <AnimatePresence>
+        {showScrollHint && (
+          <motion.div
+            className="fixed inset-x-0 bottom-6 z-50 flex justify-center pointer-events-none"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.4 }}
+          >
+            <button
+              onClick={scrollToSkills}
+              aria-label="Scroll down to skills"
+              className="pointer-events-auto flex flex-col items-center text-indigo-600 bg-white/80 backdrop-blur px-4 py-2 rounded-full shadow-lg hover:bg-white transition-colors"
+            >
+              <span className="text-xs font-medium mb-1">See my skills</span>
+              <motion.svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </motion.svg>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
