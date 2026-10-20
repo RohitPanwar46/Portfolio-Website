@@ -278,9 +278,10 @@ export default function Home() {
                 transition={{ delay: 1.1, duration: 0.5 }}
               >
                 <span className="mb-3 md:mb-0">View my projects:</span>
+                <div className="flex flex-wrap items-center gap-3 md:ml-5">
                 <Link href={"/projects"}>
                   <motion.button
-                    className="md:ml-5 bg-gradient-to-r from-yellow-200 to-amber-200 hover:from-amber-200 hover:to-yellow-200 text-amber-900 text-sm py-3 px-6 rounded-lg border border-amber-300 shadow-md hover:shadow-lg transition-all duration-300 flex items-center"
+                    className="bg-gradient-to-r from-yellow-200 to-amber-200 hover:from-amber-200 hover:to-yellow-200 text-amber-900 text-sm py-3 px-6 rounded-lg border border-amber-300 shadow-md hover:shadow-lg transition-all duration-300 flex items-center"
                     whileHover={{
                       scale: 1.05,
                       boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
@@ -302,6 +303,33 @@ export default function Home() {
                     </svg>
                   </motion.button>
                 </Link>
+
+                {/* Resume download (file: public/Rohit_Panwar_Resume.pdf) */}
+                <motion.a
+                  href="/Rohit_Panwar_Resume.pdf"
+                  download="Rohit_Panwar_Resume.pdf"
+                  className="bg-white hover:bg-indigo-50 text-indigo-700 text-sm py-3 px-6 rounded-lg border border-indigo-300 shadow-md hover:shadow-lg transition-all duration-300 flex items-center"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>Download Resume</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 ml-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </motion.a>
+                </div>
               </motion.div>
 
               {/* Social links */}
